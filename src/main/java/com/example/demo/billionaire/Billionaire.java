@@ -1,6 +1,21 @@
 package com.example.demo.billionaire;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Billionaire {
+
+    @Id
+    @SequenceGenerator(
+            name = "billionaire_sequence",
+            sequenceName = "billionaire_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "billionaire_sequence"
+    )
     private Long id;
     private String name;
     private Float netWorth;
