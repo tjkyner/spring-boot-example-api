@@ -25,4 +25,9 @@ public class BillionaireController {
     public void addBillionaire(@RequestBody Billionaire billionaire) {
         billionaireService.addNewBillionaire(billionaire);
     }
+
+    @DeleteMapping(path = "{billionaireId}")
+    public void deleteBillionaire(@PathVariable("billionaireId") Long billionaireId) {
+        billionaireService.deleteBillionaire(billionaireId);
+    }
 }

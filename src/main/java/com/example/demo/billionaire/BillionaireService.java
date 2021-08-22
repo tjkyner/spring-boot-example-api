@@ -23,4 +23,13 @@ public class BillionaireService {
         System.out.println("Received information: " + billionaire);
         billionaireRepository.save(billionaire);
     }
+
+    public void deleteBillionaire(Long billionaireId) {
+        boolean exists = billionaireRepository.existsById(billionaireId);
+        if (!exists) {
+            throw new IllegalStateException(
+                    "Billionaire with ID " + billionaireId + " does not exist");
+        }
+        billionaireRepository.deleteById(billionaireId);
+    }
 }
