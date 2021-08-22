@@ -30,4 +30,14 @@ public class BillionaireController {
     public void deleteBillionaire(@PathVariable("billionaireId") Long billionaireId) {
         billionaireService.deleteBillionaire(billionaireId);
     }
+
+    @PutMapping(path = "{billionaireId}")
+    public void updateBillionaire(
+            @PathVariable("billionaireId") Long billionaireId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Float netWorth,
+            @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) String country) {
+        billionaireService.updateBillionaire(billionaireId, name, netWorth, age, country);
+    }
 }
