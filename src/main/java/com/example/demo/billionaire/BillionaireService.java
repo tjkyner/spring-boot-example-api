@@ -18,4 +18,9 @@ public class BillionaireService {
     public List<Billionaire> getBillionaires() {
         return billionaireRepository.findAll();
     }
+
+    public void addNewBillionaire(Billionaire billionaire) {
+        System.out.println("Received information: " + billionaire);
+        billionaireRepository.save(billionaire);
+    }
 }
