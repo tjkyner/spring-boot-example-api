@@ -2,6 +2,21 @@
 In this project, I created a simple RESTful API using [Spring Boot](https://spring.io/projects/spring-boot). Limited data on the wealthiest billionaires (sourced from the [Forbes Billionaires List](https://www.forbes.com/billionaires/)) is stored in a PostgreSQL database when first running the service. The service allows for `GET`, `POST`, `PUT`, and `DELETE` functionality to interact with the existing data or add new data. All data is cleared when ending the service, allowing for a reset to the default data upon restart.
 
 # Walkthrough
+## Running the Service
+A PostgreSQL database is utilized in this project and is required in order for the service to properly run. For those who need to install PostgreSQL, I recommend visiting the [EDB PostgreSQL Database Download page](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads?quicktabs_postgres_plus_dwnlds=6) for more information. The connection information can be modified according to your needs by changing the `application.properties` file under `src/main/resources`. 
+
+```java
+spring.datasource.url=jdbc:postgresql://localhost:5432/billionaire
+spring.datasource.username=postgres
+spring.datasource.password=qwerty123
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+Once the database connection is properly established, running the `DemoApplication.java` file under `src/main/java/com/example/demo` will start the service.
+
 ## Spring Initializr
 The initial files for the project were gathered using [Spring Initializr](https://start.spring.io/). The specific settings and dependencies used can be seen below. Clicking [this link](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.4&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Example%20API%20with%20Spring%20Boot&packageName=com.example.demo&dependencies=web,data-jpa,postgresql) will take you to the same page with everything prefilled. 
 
